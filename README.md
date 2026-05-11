@@ -27,16 +27,16 @@ Una landing page + tienda funcional para una marca ficticia de especias artesana
 
 <table cellpadding="20">
   <tr>
-    <td><img src="./frontend/public/images/home.png" width="550" alt="Home" /></td>
-    <td><img src="./frontend/public/images/history.png" width="550" alt="Historia" /></td>
+    <td><img src="./frontend/public/images/home.png" width="650" alt="Home" /></td>
+    <td><img src="./frontend/public/images/history.png" width="650" alt="Historia" /></td>
   </tr>
   <tr>
-    <td><img src="./frontend/public/images/search.png" width="550" alt="Búsqueda" /></td>
-    <td><img src="./frontend/public/images/cauldron.png" width="550" alt="Caldero" /></td>
+    <td><img src="./frontend/public/images/search.png" width="650" alt="Búsqueda" /></td>
+    <td><img src="./frontend/public/images/cauldron.png" width="650" alt="Caldero" /></td>
   </tr>
   <tr>
-    <td><img src="./frontend/public/images/orders.png" width="550" alt="Pedidos" /></td>
-    <td><img src="./frontend/public/images/wizard.png" width="550" alt="Oráculo" /></td>
+    <td><img src="./frontend/public/images/orders.png" width="650" alt="Pedidos" /></td>
+    <td><img src="./frontend/public/images/wizard.png" width="650" alt="Oráculo" /></td>
   </tr>
   <tr>
     <td colspan="2" align="center"><img src="./frontend/public/images/BD.png" width="1000" alt="Base de datos" /></td>
