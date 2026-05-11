@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+*.egg-info/
+
+# Entorno
+.env
+*.db
+
+# Node
+node_modules/
+dist/
+.cache/
+
+# Vite
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# ChromaDB
+chroma_db/
+
+# Docker
+docker-compose.override.yml
