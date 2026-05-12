@@ -24,8 +24,6 @@ export function friendlyError(err: unknown): string {
   return 'Algo salió mal. Intentá de nuevo.'
 }
 
-type FastApiDetail = string | Array<{ msg: string; loc?: string[] }>
-
 /**
  * Extrae un mensaje legible de datos ya parseados de FastAPI.
  * Llámalo DESPUÉS de safeJson() para no consumir el body dos veces.
