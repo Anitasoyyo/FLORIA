@@ -260,6 +260,10 @@ Cada push y pull request a `main` ejecuta automáticamente dos trabajos en paral
 
 La configuración está en `.github/workflows/ci.yml`.
 
+El CI detectó errores de TypeScript en el primer push — tipos incompletos en el interface `Spice`, una prop sin usar y variantes de Framer Motion mal tipadas — que fueron corregidos antes de mergear:
+
+<img src="./frontend/public/images/actions.png" alt="GitHub Actions — primer run con errores detectados" width="700" />
+
 ---
 
 ## Notas

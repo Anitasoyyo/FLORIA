@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { motion, useReducedMotion, AnimatePresence, type TargetAndTransition } from 'framer-motion'
+import { motion, useReducedMotion, AnimatePresence, type TargetAndTransition, type Variants } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 
 export interface Character {
@@ -127,7 +127,7 @@ export function MessageDock({
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [closeOnClickOutside, onDockToggle])
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0, y: 100, scale: 0.8, x: '-50%' },
     visible: {
       opacity: 1,
@@ -199,7 +199,7 @@ export function MessageDock({
         x: '-50%',
         transition: { duration: 0.22, ease: 'easeIn' },
       }}
-      variants={enableAnimations ? containerVariants : {}}
+      variants={enableAnimations ? containerVariants : undefined}
     >
       <motion.div
         className="rounded-full px-4 py-2 border border-white/[0.1] shadow-[0_8px_40px_rgba(0,0,0,0.65)]"

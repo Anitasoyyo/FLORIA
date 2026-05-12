@@ -32,7 +32,7 @@ type FastApiDetail = string | Array<{ msg: string; loc?: string[] }>
  */
 export function extractErrorMessage(
   status: number,
-  data: { detail?: FastApiDetail } | null,
+  data: { detail?: unknown } | null,
 ): string {
   if (!data) {
     return `Error ${status} — verificá que el backend esté corriendo y con las dependencias instaladas.`
