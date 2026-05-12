@@ -233,6 +233,35 @@ La app estará en `http://localhost:5173`.
 
 ---
 
+## Tests
+
+El backend tiene tests de integración con **pytest** que corren contra una base de datos SQLite en memoria, sin tocar la base de datos real ni necesitar Ollama.
+
+```bash
+cd backend
+pip install -r requirements.txt -r requirements-dev.txt
+pytest tests/ -v
+```
+
+Cubren tres áreas:
+
+| Archivo | Qué testa |
+|---|---|
+| `test_health.py` | El servidor levanta y responde |
+| `test_spices.py` | Catálogo: listado, campos, búsqueda por nombre |
+| `test_auth.py` | Registro, login, email duplicado, rutas protegidas |
+
+## CI con GitHub Actions
+
+Cada push y pull request a `main` ejecuta automáticamente dos trabajos en paralelo:
+
+- **Backend Tests** — instala dependencias y corre pytest
+- **Frontend Build** — instala dependencias y verifica que el frontend compila sin errores
+
+La configuración está en `.github/workflows/ci.yml`.
+
+---
+
 ## Notas
 
 - El asistente de IA necesita dos modelos de Ollama: `llama3.2` (chat) y `nomic-embed-text` (embeddings para ChromaDB). Ver comandos de arranque arriba.
