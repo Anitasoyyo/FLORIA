@@ -51,7 +51,9 @@ Una landing page + tienda funcional para una marca ficticia de especias artesana
 **Backend:** Python 3.13 + FastAPI + SQLAlchemy + SQLite  
 **IA:** LangChain + Ollama (`llama3.2`) + ChromaDB + `nomic-embed-text`  
 **Animaciones:** Framer Motion  
-**Routing:** React Router v6
+**Routing:** React Router v6  
+**Testing:** pytest + httpx (integración contra SQLite en memoria)  
+**CI/CD:** GitHub Actions (backend tests + frontend build)
 
 ---
 
@@ -59,23 +61,31 @@ Una landing page + tienda funcional para una marca ficticia de especias artesana
 
 ```
 floria/
-├── frontend/          # React + Vite
+├── .github/
+│   └── workflows/
+│       └── ci.yml         # GitHub Actions: backend tests + frontend build
+├── frontend/              # React + Vite
 │   └── src/
 │       ├── components/
 │       │   ├── layout/    # Navbar, Footer, UserMenu
 │       │   ├── sections/  # HeroSection, StorySection
-│       │   └── ui/        # CauldronDrawer, GlassCard, ScrollReveal...
+│       │   └── ui/        # CauldronDrawer, GlassCard, ScrollReveal,
+│       │                  # WizardChat, SpiceCard, MagicSearch,
+│       │                  # FloatingParticles, StarRating, message-dock...
 │       ├── context/       # CartContext, AuthContext
-│       ├── pages/         # HomePage, ExplorarPage, MisPedidos, MisDatos
+│       ├── pages/         # HomePage, ExplorarPage, MisPedidos,
+│       │                  # MisDatos, LoginPage, RegisterPage
 │       └── hooks/
 └── backend/
-    └── app/
-        ├── api/v1/routes/ # story, spices, auth, orders, chat
-        ├── models/        # User, Spice, Order, OrderItem
-        ├── schemas/       # Pydantic validators
-        ├── ai/            # LangChain, ChromaDB, fact-checking
-        │   └── docs/      # fichas Markdown de las 21 especias
-        └── db/
+    ├── app/
+    │   ├── api/v1/routes/ # story, spices, auth, orders, chat
+    │   ├── models/        # User, Spice, Order, OrderItem
+    │   ├── schemas/       # Pydantic validators
+    │   ├── services/      # auth (lógica de negocio separada de la ruta)
+    │   ├── ai/            # LangChain, ChromaDB, fact-checking
+    │   │   └── docs/      # fichas Markdown de las 21 especias
+    │   └── db/
+    └── tests/             # pytest: conftest, test_health, test_spices, test_auth
 ```
 
 La separación frontend/backend fue pensada desde el principio. Quería que el backend fuera una API que cualquier otro cliente pudiera consumir en el futuro, y que el frontend no tuviera nada de lógica de negocio hardcodeada. El frontend solo sabe hacer fetch a `/api/v1/...` y renderizar lo que recibe.
@@ -253,7 +263,7 @@ Cubren tres áreas:
 
 ## CI con GitHub Actions
 
-Cada push y pull request a `main` ejecuta automáticamente dos trabajos en paralelo:
+Cada push a `main` ejecuta automáticamente dos trabajos en paralelo:
 
 - **Backend Tests** — instala dependencias y corre pytest
 - **Frontend Build** — instala dependencias y verifica que el frontend compila sin errores
