@@ -264,6 +264,10 @@ El CI detectó errores de TypeScript en el primer push — tipos incompletos en 
 
 <img src="./frontend/public/images/actions.png" alt="GitHub Actions — primer run con errores detectados" width="700" />
 
+Tras corregir los errores, ambos jobs pasan en verde:
+
+<img src="./frontend/public/images/actionsOk.png" alt="GitHub Actions — todos los checks en verde" width="700" />
+
 ---
 
 ## Notas
