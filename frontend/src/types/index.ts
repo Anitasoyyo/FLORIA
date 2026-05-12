@@ -28,6 +28,6 @@ export interface Spice {
   precio: number   // EUR
   emoji: string
   imagen?: string
-  stock: number
+  stock?: number
   disponible?: number
 }

@@ -115,11 +115,7 @@ const FALLBACK_STORIES: StoryCard[] = [
   },
 ]
 
-interface HomePageProps {
-  onWizardToggle: () => void
-}
-
-export function HomePage({ onWizardToggle }: HomePageProps) {
+export function HomePage() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const imgRef = useRef<HTMLImageElement>(null)
 
@@ -188,7 +184,7 @@ export function HomePage({ onWizardToggle }: HomePageProps) {
           className="absolute top-0 left-0 right-0 z-10"
           style={{ minHeight: '520vh' }}
         >
-          <HeroSection heroOpacity={heroOpacity} onWizardToggle={onWizardToggle} />
+          <HeroSection heroOpacity={heroOpacity} />
           <StorySection stories={stories} />
         </div>
       </main>

@@ -2,10 +2,9 @@ import { FloatingParticles } from '@/components/ui/FloatingParticles'
 
 interface HeroSectionProps {
   heroOpacity: number
-  onWizardToggle: () => void
 }
 
-export function HeroSection({ heroOpacity, onWizardToggle }: HeroSectionProps) {
+export function HeroSection({ heroOpacity }: HeroSectionProps) {
   return (
     <section
       className="relative h-screen flex flex-col items-center justify-center text-center px-6"

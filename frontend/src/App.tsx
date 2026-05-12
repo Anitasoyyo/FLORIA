@@ -36,7 +36,7 @@ export default function App() {
               onCauldronToggle={() => setCauldronOpen((v) => !v)}
             />
             <Routes>
-              <Route path="/"          element={<HomePage onWizardToggle={() => setWizardOpen((v) => !v)} />} />
+              <Route path="/"          element={<HomePage />} />
               <Route path="/explorar"  element={<ExplorarPage />} />
               <Route path="/login"        element={<LoginPage />} />
               <Route path="/registro"     element={<RegisterPage />} />

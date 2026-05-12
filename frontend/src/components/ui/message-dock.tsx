@@ -1,5 +1,5 @@
 import { cn } from '@/lib/utils'
-import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
+import { motion, useReducedMotion, AnimatePresence, type TargetAndTransition } from 'framer-motion'
 import { useState, useRef, useEffect } from 'react'
 
 export interface Character {
@@ -145,7 +145,7 @@ export function MessageDock({
     },
   }
 
-  const hoverAnimation = shouldReduceMotion
+  const hoverAnimation: TargetAndTransition = shouldReduceMotion
     ? { scale: 1.02 }
     : {
         scale: 1.05,
