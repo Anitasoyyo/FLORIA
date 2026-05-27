@@ -39,7 +39,7 @@ export function RegisterPage() {
       })
       const loginData = await safeJson<{ access_token?: string; detail?: unknown }>(loginRes)
       if (!loginRes.ok || !loginData?.access_token) {
-        throw new Error('Cuenta creada. Iniciá sesión para continuar.')
+        throw new Error('Cuenta creada. Inicia sesión para continuar.')
       }
       await login(loginData.access_token)
       navigate('/')
@@ -155,9 +155,9 @@ export function RegisterPage() {
           </form>
 
           <p className="mt-6 text-center font-fredoka font-light text-xs text-floria-cream/35">
-            ¿Ya tenés cuenta?{' '}
+            ¿Ya tienes cuenta?{' '}
             <Link to="/login" className="text-floria-gold hover:text-floria-amber transition-colors">
-              Iniciá sesión
+              Inicia sesión
             </Link>
           </p>
         </div>

@@ -26,7 +26,7 @@ export function LoginPage() {
       const data = await safeJson<{ access_token?: string; detail?: unknown }>(res)
       if (!res.ok) throw new Error(extractErrorMessage(res.status, data))
       if (!data?.access_token) {
-        throw new Error('Respuesta inesperada del servidor. Intentá de nuevo.')
+        throw new Error('Respuesta inesperada del servidor. Inténtalo de nuevo.')
       }
       await login(data.access_token)
       navigate('/')
@@ -121,9 +121,9 @@ export function LoginPage() {
           </form>
 
           <p className="mt-6 text-center font-fredoka font-light text-xs text-floria-cream/35">
-            ¿No tenés cuenta?{' '}
+            ¿No tienes cuenta?{' '}
             <Link to="/registro" className="text-floria-gold hover:text-floria-amber transition-colors">
-              Registrate
+              Regístrate
             </Link>
           </p>
         </div>
