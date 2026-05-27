@@ -144,7 +144,7 @@ export function Navbar({ scrolled, wizardOpen, onWizardToggle, cauldronOpen, onC
             title="Oráculo Floria"
             className={`
               flex items-center justify-center w-10 h-10 rounded-full
-              border transition-all duration-300 text-lg
+              border transition-all duration-300 text-lg leading-none
               ${wizardOpen
                 ? 'bg-floria-gold/20 border-floria-gold/70 scale-110'
                 : 'bg-white/[0.06] border-white/20 hover:bg-white/10 hover:border-floria-gold/40'

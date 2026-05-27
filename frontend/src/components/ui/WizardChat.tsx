@@ -171,7 +171,7 @@ export function WizardChat({ isOpen, onClose }: WizardChatProps) {
             exit={{ opacity: 0, y: 12, scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 320, damping: 30 }}
           >
-            <div className="rounded-2xl bg-floria-deep/92 backdrop-blur-xl border border-white/[0.09] shadow-[0_8px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col">
+            <div className="rounded-2xl bg-floria-green/80 backdrop-blur-xl border border-white/[0.09] shadow-[0_8px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col">
               {/* Header */}
               <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.07]">
                 <span className="text-sm">🧙‍♂️</span>
@@ -250,6 +250,8 @@ export function WizardChat({ isOpen, onClose }: WizardChatProps) {
             placeholder={() => 'Escríbele al mago experto...'}
             expandedWidth={400}
             showSparkleButton={false}
+            closeOnSend={false}
+            closeOnClickOutside={false}
           />
         )}
       </AnimatePresence>

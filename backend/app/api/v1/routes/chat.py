@@ -36,7 +36,7 @@ class ChatRequest(BaseModel):
 
 
 async def _stream(message: str, session_id: str):
-    history_store = SQLChatMessageHistory(session_id=session_id, connection_string=DB_URL)
+    history_store = SQLChatMessageHistory(session_id=session_id, connection=DB_URL)
     history = history_store.messages[-40:]
 
     # Inventario real inyectado en el system prompt

@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { AuthProvider } from '@/context/AuthContext'
+import { AuthProvider, useAuth } from '@/context/AuthContext'
 import { CartProvider } from '@/context/CartContext'
 import { Navbar } from '@/components/layout/Navbar'
 import { WizardChat } from '@/components/ui/WizardChat'
@@ -11,6 +11,16 @@ import { LoginPage } from '@/pages/LoginPage'
 import { RegisterPage } from '@/pages/RegisterPage'
 import { MisPedidosPage } from '@/pages/MisPedidosPage'
 import { MisDatosPage } from '@/pages/MisDatosPage'
+
+function CloseOnLogout({ onLogout }: { onLogout: () => void }) {
+  const { user } = useAuth()
+  const prev = useRef(user)
+  useEffect(() => {
+    if (prev.current && !user) onLogout()
+    prev.current = user
+  }, [user, onLogout])
+  return null
+}
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -27,6 +37,7 @@ export default function App() {
     <BrowserRouter>
       <AuthProvider>
         <CartProvider>
+          <CloseOnLogout onLogout={() => setWizardOpen(false)} />
           <div className="bg-floria-deep font-fredoka">
             <Navbar
               scrolled={scrolled}

@@ -29,6 +29,7 @@ export interface MessageDockProps {
   closeOnClickOutside?: boolean
   closeOnEscape?: boolean
   closeOnSend?: boolean
+  defaultExpandedIndex?: number
 }
 
 const defaultCharacters: Character[] = [
@@ -85,9 +86,10 @@ export function MessageDock({
   closeOnClickOutside = true,
   closeOnEscape = true,
   closeOnSend = true,
+  defaultExpandedIndex,
 }: MessageDockProps) {
   const shouldReduceMotion = useReducedMotion()
-  const [expandedCharacter, setExpandedCharacter] = useState<number | null>(null)
+  const [expandedCharacter, setExpandedCharacter] = useState<number | null>(defaultExpandedIndex ?? null)
   const [messageInput, setMessageInput] = useState('')
   const dockRef = useRef<HTMLDivElement>(null)
   const [collapsedWidth, setCollapsedWidth] = useState<number>(266)
